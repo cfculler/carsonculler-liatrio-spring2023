@@ -18,7 +18,7 @@ jobs:
     - name: Build the Docker image
       run: docker build -t cfculler/liatrio:1.5 .
       
-    - name: run tests
+    - name: Run Tests
       uses: liatrio/github-actions/apprentice-action@master
       
     - name: Log in to Docker Hub
