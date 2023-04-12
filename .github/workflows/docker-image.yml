@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build -t cfculler/liatrio:1.0 .
+      run: docker build -t cfculler/liatrio:2.0 .
