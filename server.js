@@ -10,5 +10,5 @@ app.get('/', (request, response) => {
     })
 })
 
-app.listen(8080)
-console.log("App listening on http://localhost:8080")
+app.listen(80)
+console.log("App listening on http://localhost:80")
