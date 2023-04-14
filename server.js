@@ -4,6 +4,7 @@ const app = express()
 app.set('json spaces', "\t");
 
 app.get('/', (request, response) => {
+    response.sendStatus(200)
     response.json({
         message: "My name is Carson",
         timestamp: Date.now()
