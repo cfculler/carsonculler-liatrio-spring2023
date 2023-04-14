@@ -20,6 +20,7 @@ jobs:
       
     - name: Start Server
       run: docker run -d -p 80:80 cfculler/liatrio:1.5
+      run: sleep 3
       
     - name: Run Tests
       uses: liatrio/github-actions/apprentice-action@master
