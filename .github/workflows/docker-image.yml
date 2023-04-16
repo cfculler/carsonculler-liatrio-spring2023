@@ -35,7 +35,7 @@ jobs:
 
    # Extra Credit Portion Below
 
-    -name: Authenticate with Google Cloud
+    - name: Authenticate with Google Cloud
     - uses: google-github-actions/auth@v1
       with:
         credentials: ${{ secrets.SERVICE_ACCOUNT_KEY }}
