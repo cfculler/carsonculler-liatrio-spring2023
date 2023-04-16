@@ -16,10 +16,10 @@ jobs:
     - uses: actions/checkout@v3
     
     - name: Build the Docker image
-      run: docker build -t cfculler/liatrio:1.5 .
+      run: docker build -t cfculler/liatrio:latest .
       
     - name: Start Server
-      run: docker run -d -p 80:80 cfculler/liatrio:1.5 && sleep 3
+      run: docker run -d -p 80:80 cfculler/liatrio:latest && sleep 3
       
     - name: Run Tests
       uses: liatrio/github-actions/apprentice-action@master
@@ -31,4 +31,20 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
     
     - name: Push the image to Docker Hub
-      run: docker push cfculler/liatrio:1.5
+      run: docker push cfculler/liatrio:latest
+
+   # Extra Credit Portion Below
+    - uses: google-github-actions/setup-gcloud@master
+      with:
+        service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
+        project_id: liatrio-exercise-spring2023
+        export_default_credentials: true
+
+    - name: Configure Docker Client
+      run: gcloud auth configure-docker
+
+    - name: Push Docker Image to Container Registry
+      run: |-
+        docker tag cfculler/liatrio:latest gcr.io/liatrio-exercise-spring2023/liatrioCI:latest
+        docker push gcr.io/liatrio-exercise-spring2023/liatrioCI:latest
+    
