@@ -34,7 +34,7 @@ jobs:
       run: docker push cfculler/liatrio:latest
 
    # Extra Credit Portion Below
-    - uses: google-github-actions/setup-gcloud@master
+    - uses: google-github-actions/setup-gcloud@main
       with:
         service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
         project_id: liatrio-exercise-spring2023
