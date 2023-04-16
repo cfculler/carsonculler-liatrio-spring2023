@@ -51,5 +51,5 @@ jobs:
 
     - name: Push Docker Image to Container Registry
       run: |-
-        docker tag cfculler/liatrio:latest gcr.io/liatrio-exercise-spring2023/liatrioCI:latest
-        docker push gcr.io/liatrio-exercise-spring2023/liatrioCI:latest
+        docker tag cfculler/liatrio:latest gcr.io/liatrio-exercise-spring2023/liatrio-ci:latest
+        docker push gcr.io/liatrio-exercise-spring2023/liatrio-ci:latest
