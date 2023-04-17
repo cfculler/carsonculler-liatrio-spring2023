@@ -42,7 +42,7 @@ jobs:
         project_id: liatrio-exercise-spring2023
 
     - name: Setup Google Cloud
-      uses: google-github-actions/setup-gcloud@v1
+      uses: google-github-actions/setup-gcloud@master
       with:
         project_id: liatrio-exercise-spring2023
 
@@ -55,8 +55,8 @@ jobs:
         docker push gcr.io/liatrio-exercise-spring2023/liatrio-ci:latest
 
     - name: Deploy new image
-      uses: google-github-actions/deploy-cloudrun@v1
-      with:
-        service: liatrio-ci
-        image: gcr.io/liatrio-exercise-spring2023/liatrio-ci:latest
-        platform: managed
+      run: |
+        gcloud run deploy liatrio-ci \
+        --image gcr.io/liatrio-exercise-spring2023/liatrio-ci:latest \
+        --region us-central1 \
+        --platform managed
