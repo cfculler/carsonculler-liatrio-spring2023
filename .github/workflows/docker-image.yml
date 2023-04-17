@@ -22,7 +22,7 @@ jobs:
       run: docker run -d -p 80:80 cfculler/liatrio:latest && sleep 3
       
     - name: Run Tests
-      uses: liatrio/github-actions/apprentice-action@main
+      uses: liatrio/github-actions/apprentice-action@master
       
     - name: Log in to Docker Hub
       uses: docker/login-action@v1
