@@ -33,16 +33,16 @@ jobs:
     - name: Push the image to Docker Hub
       run: docker push cfculler/liatrio:latest
 
-   # Extra Credit Portion Below
+    # Extra Credit Portion Below
 
     - name: Authenticate with Google Cloud
-    - uses: google-github-actions/auth@v0.4.2
+      uses: google-github-actions/auth@v0.4.2
       with:
         credentials_json: ${{ secrets.SERVICE_ACCOUNT_KEY }}
         project_id: liatrio-exercise-spring2023
 
     - name: Setup Google Cloud
-    - uses: google-github-actions/setup-gcloud@v1
+      uses: google-github-actions/setup-gcloud@v1
       with:
         project_id: liatrio-exercise-spring2023
 
@@ -51,6 +51,5 @@ jobs:
 
     - name: Push Docker Image to Container Registry
       run: |-
-        docker tag cfculler/liatrio:latest gcr.io/liatrio-exercise-spring2023/liatrioCI:latest
-        docker push gcr.io/liatrio-exercise-spring2023/liatrioCI:latest
-    
+        docker tag cfculler/liatrio:latest gcr.io/liatrio-exercise-spring2023/liatrio-ci:latest
+        docker push gcr.io/liatrio-exercise-spring2023/liatrio-ci:latest
