@@ -56,7 +56,7 @@ jobs:
 
     - name: Deploy new image
       run: |
-        gcloud run deploy github-actions \
+        gcloud run deploy liatrio-ci \
         --image gcr.io/liatrio-exercise-spring2023/liatrio-ci:latest \
         --region us-central1 \
         --platform managed
