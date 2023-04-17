@@ -42,7 +42,7 @@ jobs:
         project_id: liatrio-exercise-spring2023
 
     - name: Setup Google Cloud
-      uses: google-github-actions/setup-gcloud@master
+      uses: google-github-actions/setup-gcloud@v1
       with:
         project_id: liatrio-exercise-spring2023
 
