@@ -59,3 +59,4 @@ jobs:
       with:
         service: liatrio-ci
         image: gcr.io/liatrio-exercise-spring2023/liatrio-ci:latest
+        platform: managed
