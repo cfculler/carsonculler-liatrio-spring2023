@@ -55,8 +55,6 @@ jobs:
         docker push gcr.io/liatrio-exercise-spring2023/liatrio-ci:latest
 
     - name: Deploy new image
-      run: |
-        gcloud run deploy liatrio-ci \
-        --image gcr.io/liatrio-exercise-spring2023/liatrio-ci:latest \
-        --region us-central1 \
-        --platform managed
+    - uses: google-github-actions/deploy-cloudrun@v1
+    - run: |
+        gcloud run deploy liatrio-ci --image gcr.io/liatrio-exercise-spring2023/liatrio-ci:latest --region us-central1 --platform managed
