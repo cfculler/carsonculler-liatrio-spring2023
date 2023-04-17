@@ -53,3 +53,8 @@ jobs:
       run: |-
         docker tag cfculler/liatrio:latest gcr.io/liatrio-exercise-spring2023/liatrio-ci:latest
         docker push gcr.io/liatrio-exercise-spring2023/liatrio-ci:latest
+
+    - name: Deploy new image
+      uses: google-github-actions/deploy-cloudrun@v1
+      with:
+        image: gcr.io/liatrio-exercise-spring2023/liatrio-ci:latest
