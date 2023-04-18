@@ -7,9 +7,10 @@ on:
     branches: [ "main" ]
 
 env:
-  USERNAME: ${{ secrets.DOCKER_USERNAME }}
-  PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-  KEY: ${{ secrets.SERVICE_ACCOUNT_KEY }}
+  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+  DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+  SERVICE_ACCOUNT_KEY: ${{ secrets.SERVICE_ACCOUNT_KEY }}
+  PROJECT_ID: liatrio-exercise-spring2023
 
 jobs:
 
@@ -32,8 +33,8 @@ jobs:
     - name: Log in to Docker Hub
       uses: docker/login-action@v1
       with:
-        username: $USERNAME
-        password: $PASSWORD
+        username: ${{ env.DOCKER_USERNAME }}
+        password: ${{ env.DOCKER_PASSWORD }}
     
     - name: Push the image to Docker Hub
       run: docker push cfculler/liatrio:latest
@@ -43,13 +44,13 @@ jobs:
     - name: Authenticate with Google Cloud
       uses: google-github-actions/auth@v0.4.2
       with:
-        credentials_json: $KEY
-        project_id: liatrio-exercise-spring2023
+        credentials_json: ${{ env.SERVICE_ACCOUNT_KEY }}
+        project_id: ${{ env.PROJECT_ID }}
 
     - name: Setup Google Cloud
       uses: google-github-actions/setup-gcloud@v1
       with:
-        project_id: liatrio-exercise-spring2023
+        project_id: ${{ env.PROJECT_ID }}
 
     - name: Configure Docker Client
       run: gcloud auth configure-docker --quiet
