@@ -25,7 +25,7 @@ jobs:
       run: docker build -t cfculler/liatrio:latest .
       
     - name: Start Server
-      run: docker run -d -p 80:80 cfculler/liatrio:latest && sleep 3
+      run: docker run -d -p 80:80 cfculler/liatrio:latest # && sleep 3
       
     - name: Run Tests
       uses: liatrio/github-actions/apprentice-action@master
