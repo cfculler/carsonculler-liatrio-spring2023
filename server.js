@@ -5,7 +5,7 @@ app.set('json spaces', "\t");
 
 app.get('/', (request, response) => {
     response.json({
-        message: "My name is Carson Culler",
+        message: "My name is Carson Culler. Thank you for watching my demo!",
         timestamp: Date.now(),
     })
 })
